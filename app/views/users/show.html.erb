@@ -1,6 +1,9 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <% if @user == current_user %>
+    <P><%= link_to "プロフィール編集", edit_user_path(@user) %></P>
+  <% end %>
 </div>
 
 <% @post_images.each do |post_image| %>
@@ -13,4 +16,5 @@
   <P>説明: <%= post_image.caption %></P>
   <P>ユーザーネーム: <%= post_image.user.name %></P>
 </dev>
+
 <% end %>
